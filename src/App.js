@@ -1,23 +1,41 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react';
 
 function App() {
+
+  const [mostrarEcuador, setMostrarEcuador] = useState(false);
+
+  const mostrarPalabra = () => {
+    setMostrarEcuador(true);
+  };
+
+  const firstColor=(y)=>{
+    y.stopPropagation();
+    alert('Amarillo')
+  }
+  const secondColor=(b)=>{
+    b.stopPropagation();
+    alert('Azul')
+  }
+  const thirthColor=(r)=>{
+    r.stopPropagation();
+    alert('Rojo')
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='yellow' id='yellow' onClick={firstColor}>
+      {mostrarEcuador && (
+        <div>
+          <p>Ecuador</p>
+        </div>
+      )}
+      <div className='blue' id='blue' onClick={secondColor}>
+        <p>Ecuador</p>
+        <div className='red' id='red' onClick={thirthColor}>
+          <p>Ecuador</p>
+        </div>
+      </div>
     </div>
   );
 }
